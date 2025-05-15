@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Todo;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,5 +27,10 @@ class DatabaseSeeder extends Seeder
 
         User::factory(100)->create();
         Todo::factory(500)->create();
+
+        // Tambahkan seed Category
+        Category::factory(10)->create([
+            'user_id' => 1, // misal assign ke user id 1, bisa diganti sesuai user yang ada
+        ]);
     }
 }
