@@ -17,7 +17,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Group middleware untuk user yang login
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'verified')->group(function () {
 
     // Route untuk profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
